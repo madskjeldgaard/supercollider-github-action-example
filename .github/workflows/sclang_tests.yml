@@ -1,0 +1,15 @@
+# This github action runs the docker container docker run -it capitalg/supercollider:3.12 with the file .github/scripts/run_tests.scd
+
+name: sclang_tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - name: Run tests
+        uses: docker://capitalg/supercollider:3.12
+        with:
+          args: $GITHUB_WORKSPACE/.github/scripts/run_tests.scd
