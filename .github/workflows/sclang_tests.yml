@@ -12,5 +12,4 @@ jobs:
       - name: Run tests
         uses: docker://capitalg/supercollider:3.12
         with:
-         args: -v
-          # args: ${GITHUB_WORKSPACE}/.github/scripts/run_tests.scd
+         args: run -v "$PWD:$PWD" -w "$PWD"  -it capitalg/supercollider:3.12 sclang .github/scripts/run_tests.scd
