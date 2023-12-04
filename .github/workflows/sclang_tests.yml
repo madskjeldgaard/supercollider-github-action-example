@@ -7,9 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      # Check out
       - uses: actions/checkout@v3
 
+      # Pull docker image
+      - name: Pull docker image
+        run: docker pull capitalg/supercollider:3.12
+
+      # docker run -v "$PWD:$PWD" -w "$PWD"  -it capitalg/supercollider:3.12 sclang .github/scripts/run_tests.scd
       - name: Run tests
-        uses: docker://capitalg/supercollider:3.12
-        with:
-         args: -v "$PWD:$PWD" -w "$PWD" sclang .github/scripts/run_tests.scd
+        run: docker run -v "$PWD:$PWD" -w "$PWD" -it capitalg/supercollider:3.12 sclang .github/scripts/run_tests.scd
