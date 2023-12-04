@@ -2,4 +2,8 @@
 
 # supercollider-github-action-example
 
-Example of running SuperCollider tests in a github action. It uses [this docker image](https://hub.docker.com/r/capitalg/supercollider) to do it. 
+A simple example of running SuperCollider tests in a github action on every push to a repo.
+
+It uses [this docker image](https://hub.docker.com/r/capitalg/supercollider) to do it. 
+
+You can define what it needs to run int the file [.github/scripts/run_tests.scd](run_tests.scd), just make sure it exits with exit code 0 if the tests pass or any other number if it doesn't. 
