@@ -16,4 +16,4 @@ jobs:
 
       # docker run -v "$PWD:$PWD" -w "$PWD"  -it capitalg/supercollider:3.12 sclang .github/scripts/run_tests.scd
       - name: Run tests
-        run: docker run -v "$PWD:$PWD" -w "$PWD" capitalg/supercollider:3.12 sclang .github/scripts/install_quarks.scd && sclang .github/scripts/run_tests.scd
+        run: docker run -v "$PWD:$PWD" -w "$PWD" capitalg/supercollider:3.12 /bin/sh -c "sclang .github/scripts/install_quarks.scd && sclang .github/scripts/run_tests.scd"
